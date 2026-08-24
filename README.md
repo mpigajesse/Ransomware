@@ -1,4 +1,4 @@
-# Laboratoire Ransomware - Projet Éducatif
+# Laboratoire Ransomware 
 
 > ⚠️ **AVERTISSEMENT** : Ce projet est destiné à des fins **éducatives et de recherche en cybersécurité uniquement**. 
 > Il simule un ransomware pour comprendre les mécanismes de chiffrement et les techniques de sécurité. 
