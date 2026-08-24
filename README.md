@@ -351,9 +351,34 @@ Cette implémentation est volontairement **simplifiée** pour l'apprentissage :
 
 ## 📝 Auteur
 
-- **Projet** : Naomie
-- **Date** : 2026
-- **Contexte** : Laboratoire pédagogique de cybersécurité
+**Jesse Mpiga-Odoumba**
+
+- **Titre** : Développeur Full-Stack Web & Mobile | Ingénieur IA & Big Data
+- **Spécialités** : Cybersécurité, Cryptographie, Architecture système
+- **Email** : [jesse.mpiga@a-ct.ma](mailto:jesse.mpiga@a-ct.ma) | [mpigajesse@gmail.com](mailto:mpigajesse@gmail.com)
+- **Téléphone** : +212 779-635-687
+- **LinkedIn** : [linkedin.com/in/mpiga-jesse](https://linkedin.com/in/mpiga-jesse)
+- **GitHub** : [github.com/mpigajesse](https://github.com/mpigajesse)
+- **Localisation** : Casablanca, Maroc
+
+**Compétences pertinentes au projet** :
+- Cryptographie appliquée (libsodium, RSA, AES)
+- Systèmes, réseaux & cybersécurité
+- Python, TypeScript, Rust
+- Architecture logicielle souveraine
+- Analyse de sécurité et forensique
+
+**Formation** :
+- 🎓 Diplôme d'Ingénieur IA & Big Data (EIGSI Casablanca) - 2026
+- 🎓 Licence Pro. Administration & Sécurités Réseaux (INPTIC Gabon) - 2023
+- 🎓 Technicien Supérieur Réseaux & Télécoms (INPTIC Gabon) - 2022
+
+**Certifications** :
+- OCI 2025 - AI Foundations Associate
+- OCI 2025 - Generative AI Professional
+- OCI 2025 - Multicloud Architect Pro
+
+**Contexte du projet** : Laboratoire pédagogique de cybersécurité (2026)
 
 ## ⚖️ Légalité
 
