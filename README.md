@@ -342,12 +342,89 @@ Cette implémentation est volontairement **simplifiée** pour l'apprentissage :
    - Analyse des métadonnées
    - Timeline des événements
 
+## 🖥️ Configuration & Infrastructure
+
+### VMs Préconfigurées (Quick Start)
+
+Pour déployer rapidement le projet sans configuration manuelle :
+
+**Linux VM Images (Recommended)**
+- **Kali Linux** : [linuxvmimages.com/kali](https://www.linuxvmimages.com/images/kali-linux/)
+  - Pré-installé : Python3, pip, OpenSSH, cryptography tools
+  - Prêt pour les scripts `ransomware.py`, `envoyer_cle.py`
+  
+- **Ubuntu Server** : [linuxvmimages.com/ubuntu](https://www.linuxvmimages.com/images/ubuntu-server/)
+  - Pré-installé : Python3, pip, MariaDB client
+  - Prêt pour `check_ransomware.py`
+
+**Setup rapide avec VMs**
+```bash
+# 1. Télécharger les VMs préconfigurées
+# https://www.linuxvmimages.com/images/
+
+# 2. Importer dans VirtualBox/VMware
+# File > Import Appliance > Sélectionner .ova
+
+# 3. Configurer le réseau (Bridged pour interconnexion)
+# Settings > Network > Adapter 1 > Bridged Adapter
+
+# 4. Démarrer et se connecter (SSH)
+ssh user@192.168.X.X
+
+# 5. Cloner le repo et installer dependencies
+git clone https://github.com/mpigajesse/Ransomware.git
+cd Ransomware/kali
+pip install -r requirements.txt
+```
+
+### Configuration Email (yagmail)
+
+Pour envoyer les clés publiques par email :
+
+**Gmail - App Password (Plus sûr que mot de passe)**
+1. Accéder à [Google App Passwords](https://myaccount.google.com/apppasswords)
+2. Sélectionner "Mail" et "Windows Computer" (ou votre OS)
+3. Générer un mot de passe d'application (16 caractères)
+4. Utiliser ce mot de passe dans `envoyer_cle.py`:
+
+```python
+# envoyer_cle.py
+EMAIL_EXPEDITEUR   = "votre_email@gmail.com"
+EMAIL_MOT_DE_PASSE = "votre_app_password_16_chars"  # Pas votre vrai mot de passe
+EMAIL_DESTINATAIRE = "victime@example.com"
+```
+
+**Note de sécurité** : 
+- ⚠️ Jamais commiter les credentials en clair
+- ✅ Utiliser des variables d'environnement en production
+- ✅ Utiliser un gestionnaire de secrets (HashiCorp Vault, AWS Secrets Manager)
+
+### Autres ressources
+
+**Hyperviseurs virtuels**
+- [VirtualBox](https://www.virtualbox.org/) - Gratuit, cross-platform
+- [VMware Workstation Player](https://www.vmware.com/products/workstation-player) - Gratuit pour usage personnel
+- [KVM/QEMU](https://www.linux-kvm.org/) - Natif Linux
+
+**Gestion de réseau virtuel**
+- [Docker Compose](https://docs.docker.com/compose/) - Orchestration conteneurs
+- [Vagrant](https://www.vagrantup.com/) - Infrastructure as Code
+- [Ansible](https://www.ansible.com/) - Automation & provisioning
+
+---
+
 ## 🔗 Ressources
 
+**Cryptographie & Sécurité**
 - [Cryptography.io - Python](https://cryptography.io/)
 - [OWASP - Ransomware](https://owasp.org/www-community/attacks/Ransomware)
 - [CIS Controls - Ransomware Defense](https://www.cisecurity.org/)
 - [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+
+**Forensique & Incident Response**
+- [NIST SP 800-61 - Computer Security Incident Handling](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf)
+- [SANS PICERL Methodology](https://www.sans.org/reading-room/whitepapers/incident/)
+- [The Hive Project - Incident Response Platform](https://thehive-project.org/)
 
 ---
 
