@@ -1,0 +1,48 @@
+# ============================================
+# DÉPENDANCES - LABSBOOT (Bootkit Lab)
+# ============================================
+# Projet pédagogique sur les bootkits, MBR, VBR, UEFI
+# Utilisation: Analyse et forensique de démarrage
+
+# ============================================
+# DÉPENDANCES PRINCIPALES
+# ============================================
+
+# Parsing binaire et structures bas-niveau
+construct>=2.10.0
+
+# Analyse de disques et images
+pydisk>=0.2.0
+
+# Utilités système bas-niveau
+psutil>=5.9.0
+
+# Cryptographie (pour Petya simulation)
+cryptography>=42.0.0
+
+# Désassembly et reverse engineering
+capstone>=5.0.0
+
+# Manipulation de fichiers binaires
+bitstring>=4.0.0
+
+# ============================================
+# OPTIONNEL (Forensique avancée)
+# ============================================
+
+# Analyse de mémoire (Volatility plugins)
+# volatility3>=2.0.0
+
+# Parsing de structures Windows
+# pefile>=2023.0.0
+
+# Logging avancé
+colorlog>=6.7.0
+
+# ============================================
+# NOTES
+# ============================================
+# - Utiliser UNIQUEMENT dans machine virtuelle isolée
+# - Aucun accès à disque hôte
+# - Network mode: Host-Only ou Isolated
+# - Python 3.8+ requis
