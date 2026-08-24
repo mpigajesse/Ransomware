@@ -42,15 +42,17 @@ Ce projet démontre comment un ransomware sophistiqué pourrait fonctionner en i
 
 ```
 Ransomware/
-├── kali/                          # Scripts principaux (Kali Linux)
+├── kali/                          # Scripts principaux (Kali Linux - Attaquant)
 │   ├── ransomware.py             # Script de chiffrement des données
 │   ├── generer_cles.py           # Génération des clés RSA
 │   ├── envoyer_cle.py            # Envoi de la clé publique à la victime
+│   ├── requirements.txt           # Dépendances Python (kali)
 │   ├── cle_privee.pem            # Clé privée RSA (secret)
 │   ├── cle_publique.pem          # Clé publique RSA (partagée)
 │   └── ransomware_info.txt       # Métadonnées du chiffrement
-├── ubuntu/                        # Scripts de vérification/décryptage (Ubuntu)
-│   └── check_ransomware.py       # Vérification de l'intégrité des données
+├── ubuntu/                        # Scripts de vérification/décryptage (Ubuntu - Victime)
+│   ├── check_ransomware.py       # Vérification de l'intégrité des données
+│   └── requirements.txt           # Dépendances Python (ubuntu)
 └── README.md                      # Ce fichier
 ```
 
@@ -64,18 +66,72 @@ Ransomware/
 
 ### Étape 1 : Installation des dépendances
 
+#### **Pour Kali Linux (Attaquant)**
+
 ```bash
+cd kali
+
 # Créer un environnement virtuel
-python -m venv venv
+python3 -m venv venv
 
 # Activer l'environnement
-# Sur Linux/Mac:
 source venv/bin/activate
-# Sur Windows:
-venv\Scripts\activate
 
-# Installer les dépendances
-pip install pymysql cryptography
+# Installer les dépendances depuis requirements.txt
+pip install -r requirements.txt
+```
+
+**Dépendances installées :**
+- `cryptography` - Génération de clés RSA, chiffrement AES, signatures numériques
+- `PyMySQL` - Connexion et manipulation de MariaDB/MySQL
+- `yagmail` - Envoi d'email via SMTP (pour envoyer la clé publique)
+
+---
+
+#### **Pour Ubuntu/Debian (Victime)**
+
+```bash
+cd ubuntu
+
+# Créer un environnement virtuel
+python3 -m venv venv
+
+# Activer l'environnement
+source venv/bin/activate
+
+# Installer les dépendances depuis requirements.txt
+pip install -r requirements.txt
+```
+
+**Dépendances installées :**
+- `cryptography` - Vérification de signatures, déchiffrement AES
+- `PyMySQL` - Connexion et récupération de données dans MariaDB/MySQL
+
+---
+
+#### **Détail des dépendances**
+
+| Bibliothèque | Version Min | Utilisation |
+|---|---|---|
+| `cryptography` | 42.0.0 | Chiffrement RSA/AES, signatures PKCS1v15-SHA256 |
+| `PyMySQL` | 1.1.0 | Connexion MariaDB/MySQL, requêtes SQL |
+| `yagmail` | 0.15.0 | Envoi d'email SMTP (Kali uniquement) |
+
+### ✅ Fichiers requirements.txt inclus
+
+Deux fichiers `requirements.txt` sont fournis avec le projet :
+
+- **`kali/requirements.txt`** - Dépendances pour l'attaquant
+  - cryptography, PyMySQL, yagmail
+  - À utiliser dans le dossier `kali/`
+
+- **`ubuntu/requirements.txt`** - Dépendances pour la victime
+  - cryptography, PyMySQL
+  - À utiliser dans le dossier `ubuntu/`
+
+Ces fichiers spécifient les versions testées et recommandées. Utilisez-les avec :
+```bash
+pip install -r requirements.txt
 ```
 
 ### Étape 2 : Générer les clés RSA

@@ -1,0 +1,40 @@
+# ============================================
+# DÉPENDANCES - UBUNTU (Victime)
+# ============================================
+# Scripts: check_ransomware.py
+# Utilisation: Vérification et déchiffrement des données
+# Environnement: Ubuntu/Debian Linux (côté victime)
+
+# ============================================
+# DÉPENDANCES PRINCIPALES
+# ============================================
+
+# Chiffrement et vérification cryptographique
+# - Vérification de signature RSA
+# - Déchiffrement AES-256-CBC
+# - Chargement des clés publiques PEM
+cryptography>=42.0.0
+
+# Connexion à la base de données MariaDB/MySQL
+# - Récupération des données chiffrées
+# - Restauration des données déchiffrées
+PyMySQL>=1.1.0
+
+# ============================================
+# OPTIONNEL (Debugging)
+# ============================================
+# Les dépendances suivantes peuvent être utiles
+# pour le débogage ou l'analyse :
+
+# Pour une inspection détaillée des données
+# colorama>=0.4.0
+# Pour des requêtes SQL avancées
+# SQLAlchemy>=2.0.0
+
+# ============================================
+# NOTES
+# ============================================
+# - Les versions indiquées sont les versions minimum testées
+# - Python 3.8+ est requis
+# - Le script utilise uniquement ces 2 dépendances externes
+# - Tous les autres modules sont de stdlib Python

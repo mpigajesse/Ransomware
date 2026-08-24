@@ -1,0 +1,34 @@
+# ============================================
+# DÉPENDANCES - KALI LINUX (Attaquant)
+# ============================================
+# Scripts: ransomware.py, generer_cles.py, envoyer_cle.py
+# Utilisation: Simulation d'attaque ransomware
+# Environnement: Kali Linux ou machine de l'attaquant
+
+# ============================================
+# DÉPENDANCES PRINCIPALES
+# ============================================
+
+# Chiffrement et signature cryptographique
+# - Génération de clés RSA
+# - Chiffrement AES-256-CBC
+# - Signature PKCS1v15-SHA256
+cryptography>=42.0.0
+
+# Connexion à la base de données MariaDB/MySQL
+# - Exécution de requêtes SQL
+# - Récupération et mise à jour de données
+PyMySQL>=1.1.0
+
+# Envoi d'email SMTP (clé publique à la victime)
+# - Utilise Gmail App Passwords
+# - Envoie la clé publique en pièce jointe
+yagmail>=0.15.0
+
+# ============================================
+# NOTES
+# ============================================
+# - Les versions indiquées sont les versions minimum testées
+# - Python 3.8+ est requis
+# - Les scripts utilisent uniquement des bibliothèques stdlib sinon
+# - Aucun dépendance additionnelle nécessaire pour generer_cles.py
