@@ -1,0 +1,6 @@
+# Secrets et clés générées par le laboratoire
+.env
+*.pem
+!cle_publique.pem
+kali/cle_privee.pem
+__pycache__/

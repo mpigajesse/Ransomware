@@ -152,16 +152,13 @@ Clés RSA générées avec succès !
 
 ### Étape 3 : Configurer la base de données
 
-Éditer `ransomware.py` et mettre à jour `DB_CONFIG` :
+Les paramètres ne sont pas écrits dans le code : copier `.env.example` en `.env`, le remplir, puis les exporter avant de lancer les scripts.
 
-```python
-DB_CONFIG = {
-    'host': '192.168.X.X',         # IP de votre serveur MariaDB
-    'user': 'your_username',        # Utilisateur MariaDB
-    'password': 'your_password',    # Mot de passe
-    'database': 'your_database',    # Nom de la base
-    'charset': 'utf8mb4'
-}
+```bash
+export DB_HOST=192.168.X.X        # IP de votre serveur MariaDB
+export DB_USER=votre_utilisateur
+export DB_PASSWORD=votre_mot_de_passe
+export DB_NAME=votre_base
 ```
 
 **La table cible doit avoir une colonne `donnees_chiffrees` :**
