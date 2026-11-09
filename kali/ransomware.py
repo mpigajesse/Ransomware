@@ -21,11 +21,13 @@ from datetime import datetime
 # ============================================
 # CONFIGURATION BASE DE DONNEES
 # ============================================
+# Paramètres de la base du laboratoire, lus dans l'environnement (voir
+# .env.example) : aucun mot de passe n'est écrit dans le code.
 DB_CONFIG = {
-    'host': '192.168.200.130',
-    'user': 'app_user',
-    'password': 'AppPass2026!',
-    'database': 'Naomie_entreprise',
+    'host': os.environ.get('DB_HOST', '192.168.200.130'),
+    'user': os.environ.get('DB_USER', 'app_user'),
+    'password': os.environ['DB_PASSWORD'],
+    'database': os.environ.get('DB_NAME', 'Naomie_entreprise'),
     'charset': 'utf8mb4'
 }
 

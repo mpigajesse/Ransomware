@@ -5,9 +5,15 @@ from datetime import datetime
 # ============================================
 # CONFIGURATION EMAIL
 # ============================================
-EMAIL_EXPEDITEUR   = "mpigajesse@gmail.com"
-EMAIL_MOT_DE_PASSE = "zdsl avej lqid xcsu"
-EMAIL_DESTINATAIRE = "naomiemoussavou98@gmail.com"
+# Les identifiants ne sont jamais écrits dans le code : ils viennent de
+# variables d'environnement (voir .env.example). Un mot de passe d'application
+# Gmail se génère sur https://myaccount.google.com/apppasswords.
+try:
+    EMAIL_EXPEDITEUR   = os.environ["EMAIL_EXPEDITEUR"]
+    EMAIL_MOT_DE_PASSE = os.environ["EMAIL_MOT_DE_PASSE"]
+    EMAIL_DESTINATAIRE = os.environ["EMAIL_DESTINATAIRE"]
+except KeyError as manquante:
+    raise SystemExit(f"Variable d'environnement manquante : {manquante}. Voir .env.example")
 
 # ============================================
 # 1. VÉRIFIER LE STATUT DU RANSOMWARE
